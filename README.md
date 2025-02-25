@@ -44,6 +44,10 @@ NODE_ENV=development
 
 GENERATE_SOURCEMAP=false
 ````
+*      Para iniciar, debes registrar un nuevo administrador que se usará en la aplicación. Para ello, accede a la siguiente URL en tu navegador:
+
+http://localhost/backend/admin/auth/register-admin
+Será el usuario y contraseña que se utilizará para iniciar sesión en la aplicación.
     
 
 
