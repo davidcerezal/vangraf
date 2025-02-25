@@ -11,10 +11,6 @@ Requisitos previos
 *   Un archivo .env con las variables de entorno necesarias (ver ejemplo en la raíz del proyecto).
     
 
-Estructura de directorios (simplificada)
-----------------------------------------
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   kotlinCopiarEditar.  ├── backend  │   └── strapi  │       ├── config  │       ├── src  │       ├── public  │       └── Dockerfile  ├── database  │   ├── postgresql  │   ├── dbeaver  │   ├── Dockerfile  │   └── init.sql (opcional)  ├── frontend  │   ├── src  │   ├── package.json  │   ├── ...  │   └── ...  ├── nginx_reverse_proxy  │   ├── Dockerfile  │   ├── nginx.conf  │   ├── certificates  │   ├── logs  │   └── ...  ├── docker-compose.yml  ├── .env  └── README.md   `
 
 Servicios con Docker Compose
 ----------------------------
