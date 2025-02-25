@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "damages",
+  "info": {
+    "singularName": "damage",
+    "pluralName": "damages",
+    "displayName": "damage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "position": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "configuration": {
+      "type": "json"
+    },
+    "damage": {
+      "type": "float"
+    }
+  }
+}

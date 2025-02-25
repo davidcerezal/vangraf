@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "component_invalidate_options",
+  "info": {
+    "singularName": "component-invalidate-option",
+    "pluralName": "component-invalidate-options",
+    "displayName": "Component-invalidate-option"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "invalidOptionId": {
+      "type": "string"
+    },
+    "description_en": {
+      "type": "string"
+    }
+  }
+}

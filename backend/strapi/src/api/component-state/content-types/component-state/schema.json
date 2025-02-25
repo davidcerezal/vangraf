@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "component_states",
+  "info": {
+    "singularName": "component-state",
+    "pluralName": "component-states",
+    "displayName": "Component-state"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stateId": {
+      "type": "string"
+    }
+  }
+}

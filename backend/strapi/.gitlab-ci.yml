@@ -1,0 +1,6 @@
+stages:
+ - build
+ - deploy
+include:
+  - remote: 'https://git.code.tecnalia.com/digicon-webxr-store/ci-files/-/raw/master/strapi/build.yml'
+  - remote: 'https://git.code.tecnalia.com/digicon-webxr-store/ci-files/-/raw/master/project-maven-azure-docker/webhook.yml'

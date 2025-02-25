@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "component_operations",
+  "info": {
+    "singularName": "component-operation",
+    "pluralName": "component-operations",
+    "displayName": "Component-operation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "operationId": {
+      "type": "string"
+    },
+    "description_en": {
+      "type": "string"
+    }
+  }
+}

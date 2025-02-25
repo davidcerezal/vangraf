@@ -1,0 +1,159 @@
+#passLabel, #userLabel
+{
+    display: block;
+    float: left;
+    width: 110px;  
+}
+
+#loginErrorLabel {
+    display: block;
+    float: left;
+    margin-top: 10px;
+}
+
+#loginDiv
+{
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#adminButton{
+    display:none;
+}
+
+.input,
+.input:focus {
+    font-family: "Regular";
+    outline: 0px;
+    text-indent: 8px;
+    padding: 0px;
+    border: 0;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 35px;
+    height: 37px;
+    width: 100%;
+    color: grey;
+    background-color: white;
+    border: 1px solid #c7c7c7;
+}
+.textarea {
+    font-family: "Regular";
+    font-size: 15;
+    line-height: 19px;
+    min-height: 76px;
+    outline: 0px;
+    padding: 5px;
+    padding-left: 8px;
+    border: 0;
+    border-radius: 2px;
+    width: 100%;
+    color:#3d3d3d;
+    background-color: white;
+    border: 1px solid #c7c7c7;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.boton {
+    position:relative;
+    background-color: #c7c7c7;
+    color:white;
+    font-family: "Bold";
+    outline: 0px;
+    padding: 0px;
+    border: 0;
+    border-radius: 2px;
+    font-size: 18px;
+    line-height: 40px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.12); /*sombra3*/
+}
+.errorLog{
+    color: red;
+    font-family: "Bold";
+}
+.userOptions{
+    position: relative;
+    float: right;
+    margin: 10px;
+    color: rgba(125, 125, 125, 0.7);
+    border: 0;
+    background: none;
+    border-radius: 3px;
+    max-width: 150px;
+    padding: 7px;
+    padding-left: 25px;
+    text-decoration: none;
+    outline-width: 0px !important;
+    font-size: 12px;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.userOptionsList{
+    display: none;
+    background-color: white;
+    position: fixed;
+    right: -1px;
+    margin-top: 51px;
+    border: 1px solid #c7c7c7;
+    border-top: none;
+    color: rgba(125, 125, 125, 0.7);
+    font-size: 12px;
+}
+.userOption{
+    padding: 5px;
+    margin: 5px;
+    border-bottom: 1px dotted #ff6600;
+}
+.userOption:hover{
+    background-color: #ff6600;
+}
+.icon-user{
+    font-family: 'Icon';
+    font-feature-settings: 'liga';
+    color: grey;
+    padding: -8px;
+    position: absolute;
+    font-size: 18px;
+    left: 3px;
+}
+
+.accessButton{
+    float: right;
+    margin: 10px;
+    color: rgba(125, 125, 125, 0.7);
+    border-radius: 2px;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: center;
+    width: 90px;
+    font-size:13px;
+}
+.accessButton:hover, .userOptions:hover{
+    background: lightgrey;
+    cursor:pointer;
+}
+
+.accessButton.icon-button{
+    background: none;
+    font-size: 44px;
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 11px;
+    right: 17px;
+    border: none;
+    box-shadow: none;
+}
+.accessButton.icon-button:hover{
+    color: #3d3d3d;
+}

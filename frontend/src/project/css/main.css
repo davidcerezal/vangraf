@@ -1,0 +1,1024 @@
+/* Import core.css */
+@import url("~bootstrap/dist/css/bootstrap.min.css");
+@import url("~bootstrap-icons/font/bootstrap-icons.css");
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Outfit";
+    height: 100%;
+}
+
+#splash[data-visible="false"] {
+    animation: fadeOut 0.50s;
+    animation-fill-mode: forwards;
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); 
+    z-index: 999;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.popup-header h2 {
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.popup-content label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.popup-content button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
+}
+.feedBackDialog {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
+    width: 460px;
+    padding: 25px;
+    text-align: center;
+}
+
+.feedBackTitle {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.caja10px {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.formLabel {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.forms-input {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.forms-input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+.feedBackButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.feedBackButton {
+    flex: 1;
+    padding: 12px 18px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 6px;
+}
+
+.feedBackButton:hover {
+    background-color: #0056b3;
+}
+
+.errorLog {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 6px;
+    text-align: left;
+}
+
+#lgnLoginErrorPanel {
+    color: #ff4d4d;
+    font-size: 16px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+
+/* General button styling */
+button.save-row,
+button.delete-row,
+button.add-row {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Save button styling */
+button.save-row {
+  background-color: #28a745; /* Green color */
+}
+
+button.save-row:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Delete button styling */
+button.delete-row {
+  background-color: #dc3545; /* Red color */
+}
+
+button.delete-row:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Add button styling */
+button.add-row {
+  background-color: #007bff; /* Blue color */
+}
+
+button.add-row:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.ai-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .ai-button:hover {
+    background-color: #0056b3;
+  }
+  .ai-criterion {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  .loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .loading-spinner .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+#splash {
+    position: fixed;
+    z-index: 5000;
+    background-color: white;
+    background-image: url(project/images/Vangraf.png);
+    background-size: 340px;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+:root {
+	--accent-color: #DED2A3;
+}
+
+/* comment any unnecesary css */
+::-webkit-scrollbar {
+	width: 2px;
+	/* for vertical scrollbars */
+	height: 2px;
+	/* for horizontal scrollbars */
+}
+
+body {
+	font-family: "Regular";
+}
+
+.hide {
+	display: none;
+}
+
+/* SPLASH SCREEN */
+#splash[data-visible="false"] {
+	animation: fadeOut 0.50s;
+	animation-fill-mode: forwards
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	99% {
+		opacity: 0.01;
+		width: 100%;
+		height: 100%;
+	}
+
+	100% {
+		opacity: 0;
+		z-index: -1;
+		width: 0;
+		height: 0;
+	}
+}
+
+.toolboxButton {
+	border: none;
+	border-radius: 20px;
+	box-shadow: none;
+	margin-top: 10px;
+}
+
+/* BOTONES ICONOS */
+.material-icons {
+	font-family: "Icon";
+	font-size: 40px;
+	/* Support for IE. */
+	font-feature-settings: "liga";
+	display: inline;
+	color: grey;
+}
+
+.icon-button {
+	font-family: "Icon";
+	font-size: 20px;
+	height: 22px;
+	line-height: 22px;
+	min-width: 22px;
+	font-feature-settings: "liga";
+	display: inline-block;
+	color: #fefefe;
+	padding: 3px;
+	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+	border: 1px solid #c7c7c7;
+	margin: 1px;
+	border-radius: 3px;
+	background-color: #575757;
+	text-align: center;
+	font-weight: normal;
+	vertical-align: top;
+}
+
+.icon-button:hover {
+	cursor: pointer;
+	background-color: lightgrey;
+}
+
+.icon-button:active {
+	cursor: pointer;
+	box-shadow: 0px 0px 0px;
+}
+
+/* TECNALIA LOGO */
+#logo {
+	float: left;
+	background-size: contain;
+	width: 100px;
+	height: 50%;
+	line-height: 30px;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	position: absolute;
+	top: 25%;
+}
+
+/* BUTTON-ICONS IN TABLES  */
+.datatable-icon {
+	font-family: "Icon";
+	font-size: 20px;
+	cursor: pointer;
+}
+
+/* Estilos login */
+.accessButton {
+	margin: 0px !important;
+	margin-left: 5px !important;
+}
+
+#logoutCombo {
+	margin: 0px !important;
+}
+
+#contactDiv {
+	/*margin: 5px;*/
+	/*height: 40px;*/
+	position: absolute;
+	display: inline;
+}
+
+
+#design3dContainer {
+	height: 100%;
+	background: #f1f1f1;
+}
+
+#toolBoxContainer {
+	display: inline-block;
+	margin-left: 155px;
+	margin-top: 10px;
+}
+
+.toolboxContainer {
+	margin-right: 0px;
+}
+
+#bimButtons {
+	position: fixed;
+	right: 10px;
+	top: 51px;
+	display: flex;
+	flex-direction: column;
+}
+
+#bimButtons[data-hide="asideHide"] {
+	right: 10px;
+}
+
+#bimButtons[data-hide="asideShow"] {
+	right: 415px;
+}
+
+
+/*********************************Tecnalia logo********************************/
+.tecnaliaLogo {
+	width: 150px;
+	height: 70px;
+	position: fixed;
+	bottom: 30px;
+	right: 15px;
+	background-image: url("../images/tecnalia-logo-completo.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.tecnaliaLogo[data-hide="asideHide"] {
+	right: 10px;
+}
+
+.tecnaliaLogo[data-hide="asideShow"] {
+	right: 415px;
+}
+
+#selectedItemName,
+#nameContainer {
+	padding: 10px;
+	color: var(--accent-color, #ff5100);
+	text-transform: uppercase;
+	font-family: Bold;
+	font-size: 14px;
+	text-align: center;
+	position: relative;
+}
+
+.title {
+	padding: 10px 5px 5px 5px;
+	color: var(--accent-color, #ff5100);
+	text-transform: uppercase;
+	font-family: Bold;
+	font-size: 11px;
+	text-align: center;
+	position: relative;
+	clear: both;
+}
+
+.propPanel[data-visible="true"] {
+	display: block;
+}
+
+.propPanel[data-visible="false"] {
+	display: none;
+}
+
+.feedBackDialog {
+	overflow: auto;
+}
+
+.prismaTabIcon {
+	height: 30px;
+	margin-top: 8px;
+}
+
+#propertiesContainer {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: relative;
+	overflow: auto;
+}
+
+#fullscreen,
+#information,
+#configuration {
+	font-family: 'Icon';
+	font-size: 35px;
+	font-feature-settings: 'liga';
+	line-height: 40px;
+}
+
+#information {
+	font-size: 24px;
+}
+
+#login {
+	background: #313131;
+	line-height: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 5px;
+	color: white;
+}
+
+.headerRight {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	display: flex;
+}
+
+.userOptionsList {
+	z-index: 1000;
+	position:absolute;
+}
+
+.digicon-tree-node {
+	padding-left: 4px;
+}
+
+.digicon-tree-node[data-selected=true] {
+	text-shadow: 1px 1px 1px black;
+	background: #333333;
+	color: white;
+	border-radius: 2px;
+	padding-left: 4px;
+}
+
+.rightPanel,
+.leftPanel {
+
+	top: 50px !important;
+
+}
+
+.toolboxContainer {
+	box-shadow: none;
+}
+
+#toolBoxContainer {
+	margin-top: 0px !important;
+}
+
+#design3dContainerCube {
+	top: 50px !important;
+}
+
+.sample-content {
+	flex: auto;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 50px;
+}
+
+#contactDiv img {
+	width: 150px;
+	max-height: 35px;
+	cursor: pointer;
+	margin-top: 6px;
+	margin-left: 15px;
+}
+
+header {
+	min-height: 50px;
+	background-color: #000000 !important;
+}
+
+.headerRight {
+	color: #ffffff;
+}
+
+.toolboxContainer {
+
+	background: none !important;
+
+}
+
+.toolboxButton {
+	color: #fff !important;
+}
+
+#headerTB {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: auto;
+	position: fixed;
+	right: 35%;
+	top: 0px;
+}
+
+#headerTB .toolboxButton {
+	border: none;
+	box-shadow: none;
+	flex-direction: column;
+	align-items: center;
+	min-width: 137px;
+	margin: 0;
+	padding-top: 10px;
+	border-radius: 0;
+	color: white;
+	text-align: center;
+}
+
+#headerTB .toolboxButton[data-checked="true"] {
+	border-inline: 2px solid #333333;
+	background: #336a7db8;
+}
+
+.toolboxText {
+	line-height: 0px !important;
+	height: 0px !important;
+}
+
+#building-sample-container {
+	padding: 0 !important;
+}
+
+#building-sample-container #building-project-manager-ubication {
+	position: relative;
+	height: calc(100vh - 85px);
+}
+
+.building-project-header {
+	display: none;
+}
+
+.floatRight {
+	float: right;
+	margin-left: 15px;
+}
+
+#projectImg {
+	margin: 15px;
+	position: relative;
+	width: 350px;
+}
+
+#infoContainer {
+	align-items: center;
+}
+
+#chartDiv {
+	width: 85%;
+}
+
+#chartForm {
+	float: left;
+	width: 65%;
+	font-size: 12px;
+}
+
+#chart {
+	clear: both;
+}
+
+#dataContainer {
+	width: 25%;
+	float: right;
+	font-size: 12px;
+}
+
+#sensorDataContainer {
+	margin: 5px;
+	border: 1px solid;
+	padding: 7px;
+	background-color: #ededed;
+	font-weight: bold;
+	font-size: 26px;
+	position: relative;
+	top: 42px;
+}
+
+#videoTableContainer {
+	margin: 0 10px 10px 10px;
+}
+
+.dataTable {
+	min-width: 200px;
+	overflow: hidden;
+	font-size: 0.6em;
+	text-align: center;
+}
+
+.searchBox {
+	display: none;
+}
+
+/*
+#configTable div.paginationObj,
+#dashboardData div.paginationObj,
+#worksTable div.paginationObj,
+*/
+div.paginationObj {
+	display: block;
+	float: left;
+	font-size: 0.7em;
+	margin: 0;
+	padding: 0;
+}
+
+#configContainer {
+	height: 500px;
+	overflow: scroll;
+}
+
+#configMenu {
+	width: 200px;
+	float: left;
+	/*border: 0.1em solid #ededed;*/
+	/*padding: 10px;*/
+	margin: 10px;
+}
+
+#configTable {
+	width: 700px;
+	float: right;
+	/*border: 0.1em solid #ededed;*/
+	padding: 10px;
+}
+
+ul.configMenuList {
+	list-style-type: none;
+	margin-left: 20px;
+}
+
+li.configMenuListItem {
+	width: 98%;
+	border: 0.1em solid #ededed;
+	background-color: #ededed;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	margin: 5px;
+	/*padding: 5px;*/
+}
+
+.clear {
+	clear: both;
+}
+
+/* General Styles for the Side Menu */
+nav {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 20%;
+    min-width: 200px;
+    max-width: 450px;
+    height: calc(100% - 50px);
+    background-color: #ffffff;
+    border: 1px solid #6f6f6f;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    opacity: 0.9;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+	overflow-x: auto;
+}
+
+/* Toggle Button Styles */
+#toggleMenu {
+    position: absolute;
+    top: 10px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: #6f6f6f;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+}
+
+/* Metadata Container */
+#metadataContainer {
+    margin-bottom: 20px;
+}
+
+#menuToggle {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Oculto por defecto en pantallas grandes */
+}
+
+/* Menú móvil */
+#mobileMenu {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+	margin-right: 5px;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none; 
+    flex-direction: column;
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: auto;
+}
+
+#mobileMenu div {
+    margin: 10px 0;
+}
+
+/* Responsive Adjustments for Collapsed Menu */
+@media (max-width: 768px) {
+    nav {
+        width: 98%;
+        height: min-content;
+    }
+
+    nav[data-hide="hidden"] #toggleMenu {
+        transform: translateX(100%);
+    }
+
+	#menuToggle {
+        display: block; 
+		padding: 5px;
+    }
+
+	#contactDiv img {
+		margin-left: 0;
+	}
+	#buttons-container {
+		top: 50px !important;
+	}
+}
+
+#infoChartData,
+#chart,
+#tableContainer,
+#ifcDiv {
+	padding: 0 10px 10px 10px;
+}
+
+#addVideoButton,
+#showLiveStreamingVideoButton {
+	width: 90%;
+	font-size: 12px;
+	background-color: #ededed;
+	margin: 10px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#getMeteoInfoButton {
+	width: 90%;
+	font-size: 12px;
+	background-color: #ededed;
+	margin: 10px;
+	font-weight: bold;
+	text-align: center;
+	display: none;
+}
+
+#panoramaDiv {
+	min-height: 360px;
+	padding: 10px;
+}
+
+.feedBackAlertText {
+
+	max-width: 100%;
+}
+
+.userOptions {
+	padding: 5px;
+	min-width: 110px;
+	margin: 0;
+}
+
+.icon-user {
+	font-size: 38px;
+	padding: 0px;
+}
+
+/*
+#finantialInfoSummary {
+	margin-top: 10px;
+}
+
+#finantialInfoSummary div.header {
+	font-size: 10px;
+	text-align: center;
+	font-weight: bold;
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+*/
+
+#dashboardData {
+	/*height: 400px;*/
+	overflow: auto;
+}
+
+ul.dashboardList {
+	list-style-type: none;
+	margin-left: 20px;
+}
+
+li.dashboardListItem {
+	min-width: 20%;
+	float: left;
+	/*
+	min-height: 1150px;
+	height: 1600px;
+	*/
+	border: 0.1em solid #ffffff;
+	background-color: #ededed;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	margin: 0px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+#userNick {
+	position: relative;
+	left: 0px;
+}
+
+#calendarWorks {
+	padding: 10px;
+}
+
+#metadataMenuContainer {
+	background-color: #ededed;
+	margin: 0 10px;
+}
+
+.fc .fc-toolbar-title {
+	font-size: 0.9em;
+	margin: 0px;
+	/* text-transform: uppercase; */
+	font-weight: bold;
+}
+
+.cellRow {
+	line-height: normal;
+	padding: 2px;
+}
+
+.button-disable {
+	background-color: #ededed;
+	pointer-events: none;
+}
+
+#inspectionInfoContainer {
+	width: 650px;
+	padding: 0 5px;
+}
+
+#mapAsset {
+	width: 600px;
+	height: 350px;
+}
+
+.project-manager-mappopup {
+ 	text-align: center;
+}
+
+@keyframes zoomIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}

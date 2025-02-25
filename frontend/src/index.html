@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TunnelWatch - Digital Twin Platform</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A BIM model viewer">
+  <link href="project/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+  <!-- Elemento splash, feedBackContainer y login son usados por el mediator y login.js -->
+  <div id="splash" data-visible="true"></div>
+  <div id="feedBackContainer"></div>
+  
+  <header>
+    <div id="contactDiv">
+      <img src="project/images/logo_tecnalia.png" alt="SEGITU" height="50">
+    </div>
+    <div id="toolBoxContainer"></div>
+    <div class="headerRight">
+      <div id="login"></div>
+    </div>
+  </header>
+
+  <main id="center-pane">
+    <div id="building-sample-container" class="sample-content"></div>
+    <div id="birdViewContainer" style="width: 100%; height: 100%;"></div>
+    <div id="design3dContainer"></div>
+    <div id="buildingDataContainer"></div>
+    <div class="tecnaliaLogo" onclick="window.open('http://www.tecnalia.com')"></div>
+  </main>
+
+  <footer></footer>
+
+  <aside id="latNav">
+    <div id="propertiesContainer"></div>
+  </aside>
+
+  <div id="bimEngNavFastNav"></div>
+  <div id="projectManagerContainer"></div>
+
+  <!-- Aquí llamamos a tu Mediator en modo ES Modules -->
+  <script type="module">
+    import { Mediator } from './mediator.js';
+
+    // Al cargar la página, inicializamos el mediator
+    window.addEventListener('DOMContentLoaded', () => {
+      const mediator = new Mediator();
+      mediator.init();
+    });
+  </script>
+</body>
+</html>

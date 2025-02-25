@@ -1,0 +1,64 @@
+FROM node:18
+
+######################################################
+## config/database.ts variables
+#- DATABASE_HOST=database #database service name
+ARG DATABASE_HOST=database
+ENV DATABASE_HOST $DATABASE_HOST
+#- DATABASE_PORT=${POSTGRES_PORT}
+ARG DATABASE_PORT=5432
+ENV DATABASE_PORT $DATABASE_PORT
+#- DATABASE_NAME=${POSTGRES_DB}
+ARG DATABASE_NAME=strapi 
+ENV DATABASE_NAME $DATABASE_NAME
+#- DATABASE_USERNAME=${POSTGRES_USER}
+ARG DATABASE_USERNAME=default_value 
+ENV DATABASE_USERNAME $DATABASE_USERNAME
+#- DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+ARG DATABASE_PASSWORD=default_value 
+ENV DATABASE_PASSWORD $DATABASE_PASSWORD
+## config/admin.ts variables
+#- ADMIN_JWT_SECRET=${STRAPI_ADMIN_JWT_SECRET}
+ARG ADMIN_JWT_SECRET=default_value 
+ENV ADMIN_JWT_SECRET $ADMIN_JWT_SECRET
+ARG JWT_SECRET=default_value 
+ENV JWT_SECRET $JWT_SECRET
+#- API_TOKEN_SALT=${STRAPI_API_TOKEN_SALT}
+ARG API_TOKEN_SALT=default_value 
+ENV API_TOKEN_SALT $API_TOKEN_SALT
+#- TRANSFER_TOKEN_SALT=${STRAPI_TRANSFER_TOKEN_SALT}
+ARG TRANSFER_TOKEN_SALT=default_value 
+ENV TRANSFER_TOKEN_SALT $TRANSFER_TOKEN_SALT
+## config/server.ts variables
+#- HOST=0.0.0.0
+ARG HOST=0.0.0.0
+ENV HOST $HOST
+#- PORT=1337
+ARG PORT=0.0.0.0
+ENV PORT $PORT
+#- APP_KEYS=${STRAPI_APP_KEYS}
+ARG APP_KEYS=default_value 
+ENV APP_KEYS $APP_KEYS
+#- PRODUCTION_HOST=${PRODUCTION_HOST}
+ARG PRODUCTION_HOST=database
+ENV PRODUCTION_HOST $PRODUCTION_HOST
+## strapi mode variable
+#- NODE_ENV=${STRAPI_NODE_ENV}
+ARG NODE_ENV=development
+ENV NODE_ENV $NODE_ENV
+######################################################
+
+
+#create app dir
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+#install dependencies
+COPY package.json ./
+RUN npm install --force
+
+COPY . ./
+
+RUN npm run build
+EXPOSE 1337
+CMD ["npm", "run", "develop"]

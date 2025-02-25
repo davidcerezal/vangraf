@@ -1,0 +1,16 @@
+{
+    "langs": [
+        "en",
+        "es",
+        "eu"
+    ],
+    "apps": [
+        {
+            "key": "ss",
+            "destination": "/locale/",
+            "modules": [
+                "./locale/login"
+            ]
+        }
+    ]
+}

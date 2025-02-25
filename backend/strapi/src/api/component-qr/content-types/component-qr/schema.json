@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "component_qrs",
+  "info": {
+    "singularName": "component-qr",
+    "pluralName": "component-qrs",
+    "displayName": "ComponentQr",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "manufacturedDate": {
+      "type": "datetime"
+    },
+    "component_state": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::component-state.component-state"
+    },
+    "component_operations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::component-operation.component-operation"
+    },
+    "component_invalidate_options": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::component-invalidate-option.component-invalidate-option"
+    },
+    "ifcId": {
+      "type": "string"
+    },
+    "description_en": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "building_qrs",
+  "info": {
+    "singularName": "building-qr",
+    "pluralName": "building-qrs",
+    "displayName": "BuildingQr",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "ifc": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "pivotPoint": {
+      "type": "json"
+    },
+    "rotation": {
+      "type": "decimal"
+    },
+    "scale": {
+      "type": "decimal"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "es2017",
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"paths": {
+			"root/*": [""],
+			"main/*": ["'./src/main/webapp'"],
+			"project/*": ["./src/main/webapp/project'"],
+			"data/*": ["./src/main/webapp/data"]
+		}
+	},
+	"exclude": ["node_modules", "target"]
+}

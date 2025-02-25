@@ -1,0 +1,113 @@
+version: '3'
+services:
+  proxy:
+      container_name: proxy_vangraf_skeleton
+      build:
+        context: ./nginx_reverse_proxy
+        dockerfile: Dockerfile
+      restart: always
+      ports:
+        - 80:80
+        - 443:443
+      volumes:
+        - ./nginx_reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
+        - ./nginx_reverse_proxy/passwd/:/etc/nginx/passwd
+        - ./nginx_reverse_proxy/letsencrypt/:/etc/letsencrypt/
+        - ./nginx_reverse_proxy/certificates/certs/:/etc/nginx/certs
+        - ./nginx_reverse_proxy/certificates/private/:/etc/nginx/private
+        - ./nginx_reverse_proxy/logs/:/var/log/nginx/
+      depends_on:
+        - frontend
+        - backend
+  frontend:
+    image: node:22-alpine3.20
+    container_name: frontend_vangraf_skeleton    
+    ports:
+      - '9002:9002'
+    env_file:
+      - .env
+    volumes:
+      # Copy npm settings
+      - ${NPM_FILE_PATH}/.npmrc:/home/.npmrc
+      # Bind the app directory to the container
+      - ./frontend:/app
+      # Bind the built directory to the container
+      - ./built/frontend:/built/frontend
+      # launch debug command
+    working_dir: /app
+    depends_on:
+      - backend
+    command: sh -c "npm --userconfig /home/.npmrc install && npm run dev"
+     # IMPORTANT! change in prod to following command
+      # command: sh -c "npm --userconfig /home/.npmrc install && npm run build && npm run prod:serve"
+
+
+  backend:
+    container_name: strapi_vangraf_skeleton
+    build: 
+      context: ./backend/strapi
+      dockerfile: Dockerfile
+      args:
+      # config/database.ts variables
+        - DATABASE_HOST=database #database service name
+        - DATABASE_PORT=${POSTGRES_PORT}
+        - DATABASE_NAME=${POSTGRES_DB}
+        - DATABASE_USERNAME=${POSTGRES_USER}
+        - DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+      # config/admin.ts variables
+        - ADMIN_JWT_SECRET=${STRAPI_ADMIN_JWT_SECRET}
+        - JWT_SECRET=${STRAPI_JWT_SECRET}
+        - API_TOKEN_SALT=${STRAPI_API_TOKEN_SALT}
+        - TRANSFER_TOKEN_SALT=${STRAPI_TRANSFER_TOKEN_SALT}
+      # config/server.ts variables
+        - HOST=0.0.0.0
+        - PORT=1337
+        - APP_KEYS=${STRAPI_APP_KEYS}
+        - PRODUCTION_HOST=${PRODUCTION_HOST}
+      # strapi mode variable
+        - NODE_ENV=${STRAPI_NODE_ENV}
+    volumes:
+      - ./backend/strapi/config:/usr/src/app/config
+      - ./backend/strapi/src:/usr/src/app/src
+      - ./backend/strapi/public:/usr/src/app/public
+    ports:
+      - "1337:1337"
+    depends_on:
+      - database
+    restart: unless-stopped
+    
+  database:
+    container_name: database_vangraf_skeleton
+    image: 'postgres:16'
+    expose: 
+      - "5432"
+    env_file:
+      - .env
+    volumes:
+      - ./database/postgresql/:/var/lib/postgresql/data/
+      # in case we want to launch an init script
+      #- ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+
+  dbeaver:
+    container_name: dbeaver_vangraf_skeleton
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    ports:
+      - '${DBEAVER_PORT}:8978'
+    env_file:
+      - .env
+    volumes: 
+      - ./database/dbeaver:/opt/cloudbeaver/workspace
+    depends_on:
+      - database
+    restart: always
+
+#networks:
+#  default:
+#    driver: bridge
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet:  10.106.0.0/16

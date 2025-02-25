@@ -1,0 +1,22 @@
+.env
+
+#built
+built
+
+#backend
+
+#frontend
+node_modules
+dist
+package-lock.json
+
+#database
+database/postgresql
+database/dbeaver
+database/pgadmin
+
+#nginx reverse proxy
+nginx_reverse_proxy/certificates
+nginx_reverse_proxy/letsencrypt
+nginx_reverse_proxy/passwd
+nginx_reverse_proxy/logs
