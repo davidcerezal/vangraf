@@ -9,6 +9,41 @@ Requisitos previos
 *   **Docker** y **Docker Compose** instalados en tu máquina.
     
 *   Un archivo .env con las variables de entorno necesarias (ver ejemplo en la raíz del proyecto).
+
+Archivo .env
+Asegúrate de crear un archivo llamado .env (en la misma carpeta donde se encuentra tu archivo docker-compose.yml) con contenido similar a este:
+
+````
+# database variables
+PROJECT_NAME=vagraf
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=!ZX333gCZ@9RdT
+POSTGRES_PORT=5432
+POSTGRES_DB=vagraf
+
+# pgadmin variables
+PGADMIN_DEFAULT_EMAIL=admin@vagraf.com
+PGADMIN_DEFAULT_PASSWORD=seg!t2
+PGADMIN_PORT=8978
+
+# CLOUDBEAVER variables
+DBEAVER_PORT=8978
+
+# user setting variables
+NPM_FILE_PATH=C:/Users/xxx
+
+# strapi variables
+STRAPI_APP_KEYS=n8laTtkLx+Z6YRGhzt0B+g==,/PPVPs7XHfa5xmwc+/PyYA==,to6DXy1hFutj9UPQMHxjag==,XikaENO6vbio+WFSnjDPxg==
+STRAPI_API_TOKEN_SALT=wVxyrourPC0sdLKumZcXJg==
+STRAPI_JWT_SECRET=oK6sJRaHhmZ82K8yzqkfaA==
+STRAPI_ADMIN_JWT_SECRET=bGPym4fV5R1RwkI2PvgCpg==
+STRAPI_TRANSFER_TOKEN_SALT=zGCJMxK1N+KG29Ez4kvDDw==
+STRAPI_NODE_ENV=development
+PRODUCTION_HOST=localhost:1337/backend/
+NODE_ENV=development
+
+GENERATE_SOURCEMAP=false
+````
     
 
 
